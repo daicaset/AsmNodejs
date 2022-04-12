@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Home</title>
+</head>
+<body class="container">
+<br>
+<br>
+<br>
+<br>
+<div >
+  <br>
+  <br>
+  <br>
+  <a style="text-decoration-line: none ;margin-left: 10px"  href="/"><h3 style="color: #00B7FF">Hình nền điện thoại</h3>
+  </a>
+  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/add"><h5 style="color: black">Sửa</h5></a>
+  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/editdata"><h5 style="color: black">Thêm</h5></a>
+
+  <br>
+  <br>
+  <br>
+</div>
+<div style="background-color: gainsboro">
+  <br>
+  <br>
+  <h3>Edit Ảnh :</h3><br><br>
+  <div class="container" style="text-align: center;width: 60% ;float: left" >
+    <form method="post" action="/editimgdone" enctype="application/x-www-form-urlencoded">
+      <input name="__idEdit" hidden value="<%= data.id%>">
+      <h4>Tên ảnh :</h4>
+      <input style="width: 50%" name="__tenAnhEdit"  autofocus value="<%= data.tenAnh%>"><br>
+      <h4>Nội dung :</h4>
+      <input style="width: 50%" name="__noiDungEdit" value="<%= data.noiDung%>"><br>
+      <h4>Ngày tháng :</h4>
+      <input style="width: 50%" name="__ngayThangEdit" value="<%= data.ngayThang%>" type="date" ><br>
+      <h4>Link ảnh :</h4>
+      <input style="width: 50%" name="__linkAnhEdit"  value="<%= data.linkAnh %>"><br>
+      <br>
+      <br>
+      <button type="submit" style="width: 50% ;background-color: gray">Edit</button><br><br><br>
+
+    </form>
+  </div>
+  <div style="width: 39%; float: left">
+    <img style="width: 90%;height: auto" src="<%= data.linkAnh %>">
+  </div>
+
+</div>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+-->
+
+</body>
+
+</html>

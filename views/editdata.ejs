@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Home</title>
+</head>
+<body >
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <a style="text-decoration-line: none ;margin-left: 10px"  href="/"><h3 style="color: #00B7FF">Hình nền điện thoại</h3>
+  </a>
+  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/add"><h5 style="color: black">Thêm</h5></a>
+  <a style="text-decoration-line: none;margin-right: 10px;text-align: end" href="/editdata"><h5 style="color: black">Sửa</h5></a>
+
+  <br>
+  <br>
+  <br>
+</div>
+<div class="container">
+
+  <% if(data.length != 0){ %>
+    <% for (var i=0;i<data.length;i++){ %>
+      <div style="width: 30%;height:auto;margin: 10px;border-radius:10px;background-color: ghostwhite ;float: left">
+        <img style="width: 388px;height: 388px;object-fit: cover" src="<%=data[i].linkAnh %>"><br>
+        <h4 style="color: black;font-variant-caps: all-petite-caps;margin-left: 10px"><%= data[i].tenAnh %></h4><br>
+
+        <p style="margin-left: 10px;color: gray"><%= data[i].noiDung%></p>
+        <p style="margin-left: 10px;color: gray"><%= data[i].ngaythang %></p>
+
+<!--        // sua xoa-->
+        <div style="display: grid; margin-top: 30px; grid-template-columns: 1fr 1fr;">
+          <form  method="post" action="/deleteImg" >
+            <input  name="__id" hidden value=<%= data[i].id %>>
+            <button style="width: 90% ;border-radius: 10px;background-color: rgba(38,0,255,0.04)" type="submit" onclick="return confirm('Bạn có muốn xoá không ?')">Xóa</button>
+          </form>
+          <form method="post" action="/editimg">
+            <input name="__id" hidden value=<%= data[i].id %>>
+            <input name="__tenAnh" hidden value=<%= data[i].tenAnh %>>
+            <input name="__noiDung" hidden value=<%= data[i].noiDung %>>
+            <input name="__ngayThang" hidden value=<%= data[i].ngaythang %>>
+            <input name="__linkAnh" hidden value=<%= data[i].linkAnh %>>
+            <button style="width:90%;border-radius: 10px; background-color: chartreuse" type="submit">Sửa</button>
+          </form>
+
+        </div>
+      </div>
+    <% } %>
+  <% } else {%>
+    <h1>No data</h1>
+  <% } %>
+
+</div>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+-->
+
+</body>
+
+</html>
